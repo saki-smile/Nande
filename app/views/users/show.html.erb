@@ -1,0 +1,25 @@
+<div class="profile-container">
+  <h3 class="profile-name"><%= @user.name %>のページ</h3>
+  <%= attachment_image_tag @user, :profile_image, size: "100x100", format: 'jpeg' %><br>
+  <p><ruby>自己紹介<rt>じこしょうかい</rt></p>
+  <p><%= @user.introdution %></p>
+  <% if @user.id == current_user.id %>
+    <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
+  <% end %>
+</div>
+<% if @posts.present? %>
+  <% @posts.each do |post| %>
+  <div>
+    <%= attachment_image_tag post, :image, size: "500x350" %><br>
+    <%= link_to  post.title, post_path(post) %>
+    <p>ユーザーネーム：<%= post.user.name %></p>
+  </div>
+  <% end %>
+<% else %>
+  <p>まだなんで<ruby>記事<rt>きじ</rt>はありません</p>
+  <% if @user == current_user %>
+    <%= link_to new_post_path do %>
+      なんで<ruby>記事<rt>きじ</rt>を<ruby>書<rt>か</rt>く！
+    <% end %>
+  <% end %>
+<% end %>

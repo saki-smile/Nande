@@ -1,0 +1,39 @@
+<%= form_with model: post, local:true do |f| %>
+  <div class="field">
+    <%= f.label :title do %>
+      <ruby>不思議<rt>ふしぎ</rt></ruby>に<ruby>思<rt>おも</rt>ったこと
+    <% end %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :image do %>
+      <ruby>写真<rt>しゃしん</rt>
+    <% end %><br>
+    <%= f.attachment_field :image %>
+  </div>
+  <div class="field">
+    <%= f.label :realize do %>
+      <ruby>気付<rt>きづ</rt>いたこと
+    <% end %><br>
+    <%= f.text_area :realize %>
+  </div>
+  <div class="field">
+    <%= f.label :think do %>
+      <ruby>思<rt>おも</rt>ったこと
+    <% end %><br>
+    <%= f.text_area :think %>
+  </div>
+  <div class="field">
+    <%= f.label :understand do %>
+      <ruby>分<rt>わ</rt>かったこと
+    <% end %><br>
+    <%= f.text_area :understand %>
+  </div>
+  <div class="field">
+    <%= f.label :question do %>
+      まだ<ruby>分<rt>わ</rt>からないこと
+    <% end %><br>
+    <%= f.text_area :question%>
+  </div>
+  <%= f.submit 'できた！' %>
+<% end %>

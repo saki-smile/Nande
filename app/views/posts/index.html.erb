@@ -1,2 +1,8 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<% @posts.each do |post| %>
+<div>
+  <%= attachment_image_tag post, :image, size: "500x350" %>
+  <%= link_to  post.title, post_path(post) %>
+  <p>ユーザーネーム：<%= post.user.name %></p>
+</div>
+<% end %>
+
