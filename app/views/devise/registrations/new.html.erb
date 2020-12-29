@@ -1,0 +1,42 @@
+<h2><ruby>会員登録<rt>かいいんとうろく</rt></ruby></h2>
+
+<%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.label :name do %>
+      <ruby>名前<rt>なまえ</rt></ruby>
+    <% end %><br />
+    <%= f.text_field :name, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email do %>
+      <ruby>メールアドレス<rt>めーるあどれす</rt></ruby>
+    <% end %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password do %>
+      <ruby>パスワード<rt>ぱすわーど</rt></ruby>
+      <% if @minimum_password_length %>
+        <span>(<%= @minimum_password_length %><ruby>文字以上<rt>もじいじょう</rt></ruby>)</span>
+      <% end %><br />
+    <% end %>
+    <%= f.password_field :password, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation do %>
+      <ruby>パスワード<rt>ぱすわーど</rt></ruby>
+    <% end %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "とうろく！" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
